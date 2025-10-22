@@ -6,12 +6,59 @@
   <title>Document</title>
 </head>
 <body>
-  <div>
-    <p style="font-family: sans-serif;">Введите положительное число для получения факториала</p>
-    <input type="number" placeholder="enter positive" id="num" name="num">
-    <button id="computeNum">Вычислить</button>
+  <div style="position: relative;">
+    <div style="position: absolute; top: 15px; right: 15px; font-family: sans-serif; font-size: 15px; font-weight: bold;">
+      Всего игр: <span id="absResult"></span><br>
+      Выиграно: <span id="winResult"></span><br>
+      Проиграно: <span id="lostResult"></span><br>
+    </div>
+    <p style="font-family: sans-serif;">Игра угадать число от 0 до 100 (включительно)</p>
+    <p style="font-family: sans-serif; margin: 2px; color: #555;">В поле необходимо вводить целые числа от 0 до 100. Пользуясь подсказками ниже, определить загаданное число за наименьшее количество попыток.</p>
+    <p style="font-family: sans-serif; margin: 2px; color: #555;">Результаты будут записываться и выводиться в усредненном виде. Результаты исчезнут при перезагрузке страницы.</p>
+    <p style="font-family: sans-serif; margin: 2px; color: #555;">Когда Вы израсходуете половину попыток появится подсказка. Наведите мышку на нее)</p>
+    <p style="font-family: sans-serif; margin: 2px; color: #555;">Подсказка: читай про бинарный поиск</p>
+    
+    <select name="options" id="exampleSelect" style="margin-top: 15px; color: #555; font-family: sans-serif;">  
+      <option value="easy">Легко (от 0 до 50, 10 попыток)</option>  
+      <option value="semieasy">Труднее (от 0 до 100, 7 попыток)</option>  
+      <option value="hard">Трудно (от 0 до 100, 5 попыток)</option>  
+      <option value="veryhard">Задрот (от 0 до 500, 9 попыток)</option>  
+    </select>
+    <label for="options" style="margin-top: 15px; color: #555; font-family: sans-serif;">Уровень сложности</label>
+    <div style="margin-top: 15px; margin-bottom: 15px; color: #555; font-size: 30px; font-family: sans-serif;">Количество попыток: <span id="attemptCount"></span></div>
+    <div>
+      <input type="number" placeholder="enter positive" id="num" name="num">
+      <button id="computeNum">Попытка</button>
+      <button id="newGame">Заново</button>
+      <button id="endGame">Завершить игру</button>
+      <div id="hintContainer" style="display: inline;">
+        <svg id="hint" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="display: none; position: relative; width: 20px; top: 5px;">
+          <defs>
+            <style>
+              .cls-1 {
+                fill: #555;
+                stroke-width: 0px;
+              }
+            </style>
+          </defs>
+          <g data-name="Слой 1" >
+            <g>
+              <path class="cls-1" d="m14.99,0H5.01C2.25,0,0,2.25,0,5.01v9.99c0,2.76,2.25,5.01,5.01,5.01h9.99c2.76,0,5.01-2.25,5.01-5.01V5.01c0-2.76-2.25-5.01-5.01-5.01Zm3.57,14.99c0,1.97-1.6,3.57-3.57,3.57H5.01c-1.97,0-3.57-1.6-3.57-3.57V5.01c0-1.97,1.6-3.57,3.57-3.57h9.99c1.97,0,3.57,1.6,3.57,3.57v9.99Z"/>
+              <g>
+                <circle class="cls-1" cx="10" cy="15.09" r="1"/>
+                <path class="cls-1" d="m9.27,12.65V4.65c0-.41.33-.73.73-.73s.73.33.73.73v8c0,.41-.33.73-.73.73s-.73-.33-.73-.73Z"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+    </div>
+
+    
   </div>
   <div class="computed" style="margin-top: 15px; color: #555; font-size: 30px; font-family: sans-serif;"></div>
+  
   <script src="index.js"></script>
 </body>
 </html>
